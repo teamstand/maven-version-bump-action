@@ -18,15 +18,15 @@ function bump {
   case "$1" in
     major)
       local bv=$((parts[0] + 1))
-      NEW_VERSION="${bv}.${parts[1]}.${parts[2]}"
+      NEW_VERSION="${bv}.${parts[1]}.${parts[2]}.${parts[3]}"
       ;;
     minor)
       local bv=$((parts[1] + 1))
-      NEW_VERSION="${parts[0]}.${bv}.${parts[2]}"
+      NEW_VERSION="${parts[0]}.${bv}.${parts[2]}.${parts[3]}"
       ;;
     patch)
       local bv=$((parts[2] + 1))
-      NEW_VERSION="${parts[0]}.${parts[1]}.${bv}"
+      NEW_VERSION="${parts[0]}.${parts[1]}.${bv}.${parts[3]}"
       ;;
     release)
       local bv=$((parts[3] + 1))
