@@ -61,7 +61,6 @@ else
   echo $BUMP_MODE "version bump detected"
   bump $BUMP_MODE $OLD_VERSION
   echo "pom.xml at" $POMPATH "will be bumped from" $OLD_VERSION "to" $NEW_VERSION
-  cd incoming-mail-processor
   mvn -q versions:set -DnewVersion="${NEW_VERSION}"
   git ls-files --modified | grep pom.xml | xargs git add
   REPO="https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.git"
