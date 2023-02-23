@@ -38,14 +38,14 @@ runs:
         TOKEN: ${{ inputs.github-token }}
         EMAIL: ${{ inputs.git-email }}
         NAME: ${{ inputs.git-username }}
-        POMPATH: ./incoming-mail-processor/incoming-mail-processor
+        POMPATH: ~/home/tstest/incoming-mail-processor/incoming-mail-processor
       run: ${{github.action_path}}/version-bump.sh
       shell: bash
     - name: Set outputs
       id: get-outputs
       shell: bash
       env:
-        POMPATH: ./incoming-mail-processor/incoming-mail-processor
+        POMPATH: ~/home/tstest/incoming-mail-processor/incoming-mail-processor
       run: echo "::set-output name=version::$(${{github.action_path}}/get-version.sh)"
     - name: Result
       shell: bash
