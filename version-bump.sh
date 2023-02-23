@@ -63,6 +63,10 @@ else
   echo "pom.xml at" $POMPATH "will be bumped from" $OLD_VERSION "to" $NEW_VERSION
   cd ./incoming-mail-processor
   mvn -q versions:set -DnewVersion="${NEW_VERSION}"
+  cd ..
+  cd ./incoming-mail-processor-service
+  mvn -q versions:set -DnewVersion="${NEW_VERSION}"
+  cd ..
   git ls-files --modified | grep pom.xml | xargs git add
   REPO="https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.git"
   git commit -m "Bump pom.xml from $OLD_VERSION to $NEW_VERSION"
