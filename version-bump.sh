@@ -65,7 +65,7 @@ else
   mvn -q versions:set -DnewVersion="${NEW_VERSION}"
   cd ..
   cd ./incoming-mail-processor-service
-  mvn -q versions:set -DnewVersion="${NEW_VERSION}"
+  mvn -q versions:use-dep-version -Dincludes=com.teamstand:incoming-mail-processor -DdepVersion="${NEW_VERSION}" -DforceVersion=true
   cd ..
   git ls-files --modified | grep pom.xml | xargs git add
   REPO="https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.git"
