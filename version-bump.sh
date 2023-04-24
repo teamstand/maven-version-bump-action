@@ -41,7 +41,7 @@ git config --global user.name $NAME
 OLD_VERSION=$($DIR/get-version.sh)
 
 BUMP_MODE="none"
-if git branch == ns-prod-app ; then
+if git branch == production-63.0 ; then
   if git log -1 | grep -q "Merge"; then
     BUMP_MODE="major"
   else
